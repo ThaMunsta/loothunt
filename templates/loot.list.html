@@ -1,0 +1,37 @@
+		<table>
+  <caption>loot list for {{ name }}</caption>
+  <thead>
+    <tr>
+      <th style="width: 20px" scope="col">Loot</th>
+      <th scope="col">Worth</th>
+      <th scope="col">Times Found</th>
+      <th scope="col">Mayor</th>
+      <th scope="col">Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for row in list %}
+    <tr>
+      <td data-label="Loot"><a href='{{ home }}activity/~{{ row.id|d2h }}'>{{ name }}&nbsp;#{{ row.pos }}</a></td>
+      <td data-label="Worth">{{ row.worth }}</td>
+      <td data-label="Times Found">{{ row.found }}</td>
+      <td data-label="Mayor">{{ row.mayor }}&nbsp;</td>
+      <td data-label="Owner">{{ row.owner }}&nbsp;</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div id="pager" class="pager">
+  <form>
+    <i class="fas fa-fast-backward first"></i>
+    <i class="fas fa-step-backward prev"></i>
+    <input readonly type="text" class="pagedisplay"/>
+    <i class="fas fa-step-forward next"></i>
+    <i class="fas fa-fast-forward last"></i>
+    <select class="pagesize">
+      <option selected="selected"  value="10">10</option>
+      <option value="20">25</option>
+      <option value="30">50</option>
+    </select>
+  </form>
+</div>

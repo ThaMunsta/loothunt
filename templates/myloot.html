@@ -1,0 +1,37 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>loot box</h1>
+    {% if rows %}
+    <p>Click on the link if available to perform various updates.</p>
+		<table>
+  <caption>Loots You Can Customize</caption>
+  <thead>
+    <tr>
+      <th scope="col">Loot</th>
+      <th scope="col">Image</th>
+      <th scope="col">Tagline</th>
+      <th scope="col">Hint</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for row in rows %}
+    {% if (row.hunt != 'BURN' and row.hunt != 'LOTT') %}
+    <tr>
+      <td data-label="Loot">{% if row.lootURL %}{{ row.lootURL | raw }}{{ row.hunt }} #{{ row.packagecount }}</a>{% endif %}</td>
+      <td data-label="Image">{% if row.imageURL %}{{ row.imageURL | raw }}{% if row.img %}Update Image {% else %}Add Image {% endif %}</a>{% else %}<i class="fas fa-ban"></i>{% endif %}</td>
+      <td data-label="Tagline">{% if row.tagURL %}{{ row.tagURL | raw }}{% if row.tag %}Update:</a> {{ row.tag|db2str }}{% else %}Add Tag{% endif %}</a>{% else %}<i class="fas fa-ban"></i>{% endif %}</td>
+      <td data-label="Hint">{% if row.hintURL %}{{ row.hintURL | raw }}{% if row.hint %}Update:</a> {{ row.hint|db2str }}{% else %}Add Hint{% endif %}</a>{% else %}<i class="fas fa-ban"></i>{% endif %} </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+    <p>Only Mayors can add images or taglines.<br>Only Owners can update a hint.</p>
+    {% else %}
+    Nothing to see here yet. Keep looking for more Loots and this section will get more fun
+    {% endif %}
+	</div>
+</body>
+{% include('footer.html') %}

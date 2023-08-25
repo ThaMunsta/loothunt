@@ -1,0 +1,11 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>update profile</h1>
+		<p><a href='{{ home }}profile/'><i class="fas fa-user"></i>Back to profile</a><form method="post" action="update/email/">Email: {% if email %} {{ email }} {% else %} None {% endif %} <br> <input value="{{ email }}" type="email" name="email" size="15" maxlength="140"/> <input class="button" type="submit" value="Set Email!" /><br>Email is used for password recovery. Only you can see this.</form></p>
+		Upload Profile Picture<iframe id="uploadf" height=500 width=100% frameborder=0 src="{{ uploadUrl }}img/"></iframe>
+		<div class="addthis_inline_follow_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

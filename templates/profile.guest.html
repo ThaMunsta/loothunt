@@ -1,0 +1,30 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>{{ name }}</h1>
+		{% if pic %} {{ pic|raw }} <br> {% endif %}
+		{% if tag %}Status: <i>{{ tag }}</i><br> {% endif %}
+		Global leaderboard position: #{{ rank }}<br>
+		Total points: {{ score }}<br>
+		Loots found: {{ found }}
+		<h3>Trophy case</h3>
+		{% if trophies %}
+		{% for trophy in trophies %}
+		<div class="responsivetrop">
+		  <div class="gallery">
+		    <img src="{{ home }}img/trophy/{{ trophy.img }}" alt="{{ trophy.trophy }}">
+		    <div class="desc">{{ trophy.trophy | raw }}</div>
+		  </div>
+		</div>
+		{% endfor %}
+		<div class="clearfix"></div>
+		{% else %}
+		No trophies to display yet
+		{% endif %}
+		{% include('activity.user.html') %}
+		<br>
+		<div class="addthis_inline_share_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

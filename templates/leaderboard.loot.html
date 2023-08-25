@@ -1,0 +1,22 @@
+    <h1>{{ name }}</h1>
+		<table>
+  <caption>Top 10 Scores</caption>
+  <thead>
+    <tr>
+      <th style="width: 20px" scope="col">#</th>
+      <th scope="col">User</th>
+      <th scope="col">Score</th>
+      <th scope="col">Loot Found</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for row in leaderboard %}
+    <tr>
+      <td data-label="#"> {{ row.pos }}</td>
+      <td data-label="User"><a href='{{ home }}profile/{{ row.display }}/'> {{ row.display }}</a></td>
+      <td data-label="Score">{{ row.score }}</td>
+      <td data-label="Loot Found">{{ row.found }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

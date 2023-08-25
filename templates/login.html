@@ -1,0 +1,26 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		{% if auth %}
+		Success! Welcome and good luck to you {{ name }}!
+		{% if ref %}<br>Looks like you found some points <a href="{{ ref }}">so go get them here!!</a>{% endif %}
+		{% else %}
+		{% if lootErr %}<p>{{ lootErr | raw }}{% endif %}</p>
+		If you do not have an account a new one will be created using the information you enter below:
+		<br><br>
+		<form method="post" action="{{ home }}login/">
+			User name: <input class="" type="text" name="user" maxlength="28" size="15" autofocus/><br>
+			Password: <input class="" type="password" &tab; name="passwd" maxlength="12" size="15"/> <br>
+			<input type="hidden" name="login" value="true"/>
+			{% if errMsg %}
+			<p class="errMsg">{{ errMsg }}</p>
+			{% endif %}
+			<input class="button-primary" type="submit" value="Login/Register" />
+		</form>
+		<br>
+		<a href="{{ home }}reset/">Forgot your password?</a>
+		{% endif %}
+	</div>
+</body>
+{% include('footer.html') %}

@@ -1,0 +1,33 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>{{ detail.user }}</h1>
+    <form method="post" action="{{ home }}update/status/">
+      Update Status: <input class="" type="text" name="status" size="15" maxlength="140"/>
+      <input class="button" type="submit" value="Set Status!" />
+    </form>
+		<p><a href="{{ home }}update/"><i class="fas fa-user-edit"></i>Edit Profile</a><br>
+    <a href="{{ home }}profile/{{ detail.user }}/"><i class="fas fa-user"></i>View Public Profile</a><br>
+		{% if pic %} {{ pic|raw }} <br> {% endif %}
+		{% if tag %}Status: <i>{{ tag }}</i><br> {% endif %}
+		Your global leaderboard rank is #{{ rank }}<br>
+		Total points: {{ score }}<br>
+		Loots found: {{ found }}
+    <h3 id="trophies">Trophy case</h3>
+    {% if trophies %}
+    {% for trophy in trophies %}
+    <div class="responsivetrop">
+      <div class="gallery">
+        <img src="{{ home }}img/trophy/{{ trophy.img }}" alt="{{ trophy.trophy }}">
+        <div class="desc">{{ trophy.trophy | raw }}</div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    No trophies to display yet
+    {% endif %}
+    {% include('activity.user.html') %}
+	</div>
+</body>
+{% include('footer.html') %}

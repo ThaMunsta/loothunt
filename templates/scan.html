@@ -1,0 +1,17 @@
+{% include('header.html') %}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<script type="text/javascript" src="../app/instascan.min.js"></script>
+<body style="overflow: hidden;">
+	<center>
+  <div id="app">
+    <div class="preview-container">
+      <h3 style="display: table-cell;">Show us the Loot code!</h3>
+      <video id="preview"></video>
+    </div>
+  </div>
+  <script type="text/javascript" src="../app/scan.js"></script>
+</center>
+</body>
+{% include('footer.html') %}
