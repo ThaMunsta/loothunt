@@ -1,0 +1,11 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>password reset</h1>
+		<p>In some cases it may be difficult to retrieve your password. Lets start with your email address:</p>
+		<form method="post" action="{{ home }}reset/">E-mail: <input class="" type="email" name="email" size="15" maxlength="140" autofocus/> <input class="button" type="submit" value="Reset!" /></form>
+		<div class="addthis_inline_follow_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

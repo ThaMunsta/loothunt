@@ -1,0 +1,10 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<center><h1 class="errMsg"><i class="fas fa-exclamation-triangle"></i>Error: {{ errMsg|raw }}</h1></center>
+		<p>{{ errDetails|raw }}</p>
+		<div class="addthis_inline_follow_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

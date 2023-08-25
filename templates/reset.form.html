@@ -1,0 +1,13 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>password reset</h1>
+		{% if success %}<p>Password updated. You can <a href='{{ home }}login/'>try again</a>.
+		{% else %}
+		{% if valid %}<p>Token accepted. Please choose a new password below:</p>
+		<form method="post" action="{{ uri }}">New Password: <input type="password" name="password" size="15"/> <input class="button" type="submit" value="Reset!" /></form>{% else %}<p class="errMsg">You're reset token is invalid or expired. Please check your email or request a new reset token. If you still need help reach out to us on social media.</p>{% endif %}{% endif %}
+		<div class="addthis_inline_follow_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

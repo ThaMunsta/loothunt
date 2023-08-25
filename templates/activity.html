@@ -1,0 +1,44 @@
+{% include('header.html') %}
+<body>
+	<div class="main">
+		<h1>global activity</h1>
+		<table>
+  <caption>Activity</caption>
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Loot Name</th>
+      <th scope="col">Points</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for row in rows %}
+    <tr>
+      <td data-label="User"><a href='{{ home }}profile/{{ row.player }}/'>{{ row.player }}</a></td>
+      <td data-label="Loot Name">{% if row.hunt == "LOTT" %}Lottery Win{% elseif row.hunt == "BURN"  %}Bonus Drop{% else %}<a href='{{ home }}activity/~{{ row.package|d2h }}'>{{ row.hunt }} #{{ row.packagecount }}</a>{% endif %}</td>
+      <td data-label="Points">{{ row.points }}</td>
+      <td data-label="Time">{{ row.stamp|time2str }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div id="pager" class="pager">
+  <form>
+    <i class="fas fa-fast-backward first"></i>
+    <i class="fas fa-step-backward prev"></i>
+    <input readonly type="text" class="pagedisplay"/>
+    <i class="fas fa-step-forward next"></i>
+    <i class="fas fa-fast-forward last"></i>
+    <select class="pagesize">
+      <option selected="selected"  value="10">10</option>
+      <option value="20">25</option>
+      <option value="30">50</option>
+    </select>
+  </form>
+</div>
+<br>
+		<div class="addthis_inline_share_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

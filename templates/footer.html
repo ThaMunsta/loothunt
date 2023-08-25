@@ -1,0 +1,11 @@
+<br><br><br><br>
+<div class="botnav">
+  <a href="{{ home }}scan/" class="active"><i class="fas fa-qrcode"></i><br>Scan</a>
+  <a href="{{ home }}score/"><i class="fas fa-chart-line"></i><br>Leaderboard</a>
+  <a href="{{ home }}activity/"><i class="far fa-list-alt"></i><br>Activity</a>
+  {% if auth %}
+  <a href="{{ home }}myloot/"><i class="fas fa-box-open"></i><br>My Loot</a>
+  {% else %}
+  <a href="{{ home }}login/"><i class="fas fa-sign-in-alt"></i><br>Login</a>
+  {% endif %}
+</div>

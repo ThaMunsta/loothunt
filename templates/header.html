@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+  <title>Loot Hunt</title>
+  <link href="{{ home }}style/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <style type="text/css"></style>
+  <!-- My code is ugly, you probably shouldn't look any further -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include('tracking.html') %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="image_src" href="/mstile-150x150.png" />
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:site_name" content="LootHunt"/>
+  <meta property="og:title" content="LootHunt"/>
+  <meta property="og:url" content="https://loothunt.ca/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:description" content="Loot Hunt! The AR Game insipired by video game easter eggs and hidden package achievements."/>
+  <meta property="og:image" content="https://loothunt.ca/mstile-150x150.png"/>
+  <meta property="og:image:width" content="150"/>
+  <meta property="og:image:height" content="150"/>
+  <meta itemprop="name" content="LootHunt"/>
+  <meta itemprop="url" content="https://loothunt.ca/"/>
+  <meta itemprop="description" content="Loot Hunt! The AR Game insipired by video game easter eggs and hidden package achievements."/>
+  <meta itemprop="thumbnailUrl" content="https://loothunt.ca/mstile-150x150.png"/>
+  <meta itemprop="image" content="https://loothunt.ca/mstile-150x150.png"/>
+  <meta name="twitter:title" content="LootHunt"/>
+  <meta name="twitter:image" content="https://loothunt.ca/mstile-150x150.png"/>
+  <meta name="twitter:url" content="https://loothunt.ca/"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:description" content="Loot Hunt! The AR Game insipired by video game easter eggs and hidden package achievements."/>
+  <meta name="description" content="Loot Hunt! The AR Game insipired by video game easter eggs and hidden package achievements." />
+  
+  <script type="text/javascript" src="{{ home }}app/jquery-1.2.3.min.js"></script>
+  <script type="text/javascript" src="{{ home }}app/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="{{ home }}app/jquery.tablesorter.pager.min.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5af069538dafda5f"></script>
+  <script>
+  function myMenu() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+          x.className += " responsive";
+      } else {
+          x.className = "topnav";
+      }
+  }
+  $(document).ready(function() { 
+      $("table") 
+      .tablesorter({widthFixed: true, widgets: ['zebra']}) 
+      .tablesorterPager({container: $("#pager")}); 
+  }); 
+  </script>
+</head>
+
+<header class="">
+  <div class="topnav" id="myTopnav">
+    <a href="{{ home }}" class="active">Home</a>
+    {% if notification.count > 0 %}<span class="notification-counter">{{ notification.count }}</span>{% endif %}
+    {% if auth %}
+    <a href='{{ home }}notifications/'>Notifications {% if notification.count > 0 %}<p class="notification-count">{{ notification.count }}</p></a>
+    {% endif %}
+    <a href='{{ home }}profile/'>Profile</a>
+    <a href='{{ home }}myloot/'>My Loot</a>
+    {% endif %}
+    <a href='{{ home }}loot/'>Hunts</a>
+    <a href='{{ home }}leaderboard/'>Leaderboard</a>
+    <a href='{{ home }}activity/'>Activity</a>
+    {% if auth %}
+    <a href='{{ home }}lotto/'>Lottery</a>
+    <a href='{{ home }}chat/'>Chat</a>
+    <a href='{{ home }}logout/'>Logout</a>
+    {% else %}
+    <a href='{{ home }}login/'>Login/Register</a>
+    {% endif %}
+    <a href="javascript:void(0);" class="icon" onclick="myMenu()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</header>

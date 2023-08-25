@@ -1,0 +1,14 @@
+{% include('header.html') %}
+
+<body>
+	<div class="main">
+		<h1>update profile</h1>
+		<p><a href='{{ home }}myloot/'><i class="fas fa-user"></i>Back to loot box</a>
+			<form method="post" action="{{ home }}update/tag/"><input type="text" name="tag" size="15" maxlength="140"/>
+				<input class="button" type="submit" value="Set Tag!" />
+				<input type="hidden" name="id" value="{{ tagid }}">
+			</form></p>
+		<div class="addthis_inline_follow_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}

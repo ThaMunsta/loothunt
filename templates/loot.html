@@ -1,0 +1,31 @@
+{% include('header.html') %}
+<body>
+	<div class="main">
+		<h1>current hunts</h1>
+		<a href='{{ home }}archive/'>View Expired Hunts</a>
+		{% if rows %}
+		<table>
+  <caption>Active</caption>
+  <thead>
+    <tr>
+      <th scope="col">Hunt</th>
+      <th scope="col">Expires</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for row in rows %}
+    <tr>
+      <td data-label="Hunt"><a href="{{ home }}loot/{{ row.hunt }}">{{ row.hunt }}</a></td>
+      <td data-label="Expires">{{ row.expiry|time2str }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<br>Doesn't look like there are any active hunts to display. Check back later!
+{% endif %}
+    <br><br>
+  	<div class="addthis_inline_share_toolbox"></div>
+	</div>
+</body>
+{% include('footer.html') %}
